@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>balboa.jpg</file>
+        <file>solarpanels.jpg</file>
+        <file>sun.png</file>
+    </qresource>
+</RCC>
