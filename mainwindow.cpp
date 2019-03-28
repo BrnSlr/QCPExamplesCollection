@@ -47,6 +47,7 @@
 #include <QScreen>
 #include <QMessageBox>
 #include <QMetaEnum>
+#include <bitset>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -91,6 +92,7 @@ void MainWindow::setupDemo(bool openGl)
     setupItemDemo(11,0, openGl);
     setupHistoryDemo(11,1, openGl);
     setupAxisTagDemo(12,0, openGl);
+    setupBitFieldDemo(12,1, openGl);
 
     setWindowTitle("QCustomPlot Examples");
 }
@@ -99,8 +101,8 @@ void MainWindow::setupQuadraticDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Quadratic Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -137,8 +139,8 @@ void MainWindow::setupSimpleDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Simple Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -198,8 +200,8 @@ void MainWindow::setupSincScatterDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Sinc Scatter Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -298,8 +300,8 @@ void MainWindow::setupScatterStyleDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Scatter Style Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -380,8 +382,8 @@ void MainWindow::setupLineStyleDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Line Style Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -437,8 +439,8 @@ void MainWindow::setupScatterPixmapDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Scatter Pixmap Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -498,8 +500,8 @@ void MainWindow::setupDateDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Date Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -574,8 +576,8 @@ void MainWindow::setupTextureBrushDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Texture Brush Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -635,8 +637,8 @@ void MainWindow::setupMultiAxisDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Multi Axis Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -773,8 +775,8 @@ void MainWindow::setupLogarithmicDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Logarithmic Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -872,8 +874,8 @@ void MainWindow::setupRealtimeDataDemo(int row, int col, bool openGl)
     QTimer *timer = new QTimer();
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Real Time Data Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -952,8 +954,8 @@ void MainWindow::setupRealtimeThresholdDemo(int row, int col, bool openGl)
     QTimer *timer = new QTimer();
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Real Time Threshold Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1125,8 +1127,8 @@ void MainWindow::setupRealtimeBrushDemo(int row, int col, bool openGl)
     QTimer *timer = new QTimer();
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Real Time Brush Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1233,8 +1235,8 @@ void MainWindow::setupRealtimeEcgDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Real Time ECG Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1305,8 +1307,8 @@ void MainWindow::setupParametricCurveDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Parametric Curves Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1363,8 +1365,8 @@ void MainWindow::setupBarChartDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Bar Chart Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1467,8 +1469,8 @@ void MainWindow::setupStatisticalDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Statistical Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1516,8 +1518,8 @@ void MainWindow::setupSimpleItemDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Simple Item Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1555,8 +1557,8 @@ void MainWindow::setupItemDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Item Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1728,8 +1730,8 @@ void MainWindow::setupStyledDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Styled Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1844,8 +1846,8 @@ void MainWindow::setupAdvancedAxesDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Advanced Axes Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -1965,8 +1967,8 @@ void MainWindow::setupColorMapDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Color Map Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -2036,8 +2038,8 @@ void MainWindow::setupFinancialDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Financial Charts Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -2145,8 +2147,8 @@ void MainWindow::setupAxisTagDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Axis Tag Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -2214,8 +2216,8 @@ void MainWindow::setupHistoryDemo(int row, int col, bool openGl)
 {
     QWidget *widget = new QWidget();
     widget->setWindowTitle("Waterfall Demo");
-    widget->setMinimumHeight(350);
-    widget->setMaximumHeight(350);
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
 
     QCustomPlot *plot = new QCustomPlot();
     plot->setOpenGl(openGl);
@@ -2229,24 +2231,79 @@ void MainWindow::setupHistoryDemo(int row, int col, bool openGl)
 
     _loGrid->addWidget(widget,row,col,1,1);
 
-    plot->yAxis->grid()->setVisible(false);
-    plot->xAxis->grid()->setVisible(false);
-    for(int i=0; i<40; i++) {
-        QCPAxis *axisY = new QCPAxis(plot->axisRect(), QCPAxis::atLeft);
-        QCPAxis *axisX = new QCPAxis(plot->axisRect(), QCPAxis::atBottom);
-        plot->addGraph(axisX, axisY);
-        plot->graph(i)->setPen(QPen(QColor(0,0,255, 150 - (100*double(40-i)/40.0))));
-        plot->graph(i)->setBrush(QBrush(Qt::white));
-        axisX->setRange(-18 - 0.5*(40-i),40- 0.5*(40-i));
-        axisY->setRange(-2 - 0.5*(40-i),30- 0.5*(40-i));
+    plot->axisRect()->insetLayout()->setMargins(QMargins(0,0,0,0));
+
+    int nbCurves = 40;
+    qreal axisRectWidth = 0.7;
+    qreal axisRectHeight = 0.5;
+
+    qreal axisRectPosX = 1-axisRectWidth;
+    qreal axisRectPosY = 0.0;
+
+    qreal dX = -1*(1-axisRectWidth) / (nbCurves -1);
+    qreal dY = (1-axisRectHeight) / (nbCurves -1);
+
+    plot->yAxis->setVisible(false);
+    plot->xAxis->setVisible(false);
+
+
+    for(int i=nbCurves-1; i>=0; i--) {
+
+        QCPAxisRect *axisRect = new QCPAxisRect(plot);
+        axisRect->setMargins(QMargins(0,0,0,0));
+        QRectF posRect(axisRectPosX,axisRectPosY,axisRectWidth,axisRectHeight);
+        axisRectPosX += dX;
+        axisRectPosY += dY;
+        plot->axisRect()->insetLayout()->addElement(axisRect, posRect);
+
+        QCPGraph *graph;
+
+        if(i != nbCurves -1) {
+            graph = plot->addGraph(axisRect->axis(QCPAxis::atBottom), axisRect->axis(QCPAxis::atLeft));
+            graph->setPen(QPen(QColor(0,0,255, 150 - (100*double(i)/double(nbCurves)))));
+            graph->setBrush(QBrush(Qt::white));
+            axisRect->axis(QCPAxis::atBottom)->setRange(-18,20);
+            axisRect->axis(QCPAxis::atLeft)->setRange(-0.1,3);
+            axisRect->axis(QCPAxis::atBottom)->grid()->setZeroLinePen(Qt::NoPen);
+            axisRect->axis(QCPAxis::atLeft)->grid()->setZeroLinePen(Qt::NoPen);
+        } else {
+
+            graph = plot->addGraph(axisRect->axis(QCPAxis::atTop), axisRect->axis(QCPAxis::atRight));
+            graph->setPen(QPen(QColor(0,0,255, 150 - (100*double(i)/double(nbCurves)))));
+            graph->setBrush(QBrush(Qt::white));
+            axisRect->axis(QCPAxis::atTop)->setRange(-18,20);
+            axisRect->axis(QCPAxis::atRight)->setRange(-0.1,3);
+            axisRect->axis(QCPAxis::atBottom)->setRange(-18,20);
+            axisRect->axis(QCPAxis::atLeft)->setRange(-0.1,3);
+
+            axisRect->axis(QCPAxis::atBottom)->grid()->setZeroLinePen(Qt::NoPen);
+            axisRect->axis(QCPAxis::atLeft)->grid()->setZeroLinePen(Qt::NoPen);
+            axisRect->axis(QCPAxis::atTop)->setVisible(true);
+            axisRect->axis(QCPAxis::atRight)->setVisible(true);
+            axisRect->axis(QCPAxis::atTop)->setTickLabelSide(QCPAxis::lsInside);
+            axisRect->axis(QCPAxis::atRight)->setVisible(true);
+            axisRect->axis(QCPAxis::atRight)->setTickLabelSide(QCPAxis::lsInside);
+
+
+            axisRect->axis(QCPAxis::atTop)->grid()->setVisible(true);
+            axisRect->axis(QCPAxis::atRight)->grid()->setVisible(true);
+        }
+
+        if(i==0) {
+            graph->setPen(QPen(QColor(0,0,255)));
+            axisRect->axis(QCPAxis::atBottom)->grid()->setVisible(false);
+            axisRect->axis(QCPAxis::atLeft)->grid()->setVisible(false);
+            axisRect->axis(QCPAxis::atBottom)->setVisible(true);
+            axisRect->axis(QCPAxis::atLeft)->setTickLabelSide(QCPAxis::lsInside);
+            axisRect->axis(QCPAxis::atBottom)->setTickLabelSide(QCPAxis::lsInside);
+        }
+
+        if(i > 0 ) {
+            axisRect->axis(QCPAxis::atBottom)->setVisible(false);
+            axisRect->axis(QCPAxis::atLeft)->setVisible(false);
+        }
+
     }
-
-    plot->addGraph();
-    plot->graph(40)->setPen(QPen(QColor(0,0,255,255)));
-    plot->graph(40)->setBrush(QBrush(Qt::white));
-
-    plot->xAxis->setRange(-18,40);
-    plot->yAxis->setRange(-2,30);
 
     QTimer *timer = new QTimer();
     connect(timer, &QTimer::timeout,
@@ -2257,23 +2314,118 @@ void MainWindow::setupHistoryDemo(int row, int col, bool openGl)
         double phase = secs*5;
         double k = 3;
         QVector<double> x(n), y(n);
-        plot->graph(40)->data().data()->clear();
+        //        plot->graph(40)->data().data()->clear();
         for (int i=0; i<n; ++i)
         {
             x[i] = i/(double)(n-1)*34 - 17;
             y[i] = QRandomGenerator::global()->bounded(3.0) * qAbs(qExp(-x[i]*QRandomGenerator::global()->bounded(100.0)*x[i]/20.0)*qSin(k*x[i]+phase));
         }
-        plot->graph(40)->setData(x, y);
 
-        for(int j=0; j<plot->graphCount() -1; j++) {
+        for(int j=0; j<nbCurves-1; j++) {
             plot->graph(j)->data()->set(*plot->graph(j+1)->data());
         }
+
+        plot->graph(nbCurves-1)->setData(x, y);
+
         plot->replot();
     }
 
     );
 
     timer->start(250);
+
+}
+
+void MainWindow::setupBitFieldDemo(int row, int col, bool openGl)
+{
+    QWidget *widget = new QWidget();
+    widget->setWindowTitle("Bitfields Demo");
+    widget->setMinimumHeight(400);
+    widget->setMaximumHeight(400);
+
+    QCustomPlot *plot = new QCustomPlot();
+    plot->setOpenGl(openGl);
+    QStatusBar *bar = new QStatusBar();
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(new QLabel(widget->windowTitle()), 0);
+    layout->addWidget(plot, 1);
+    layout->addWidget(bar, 0);
+    widget->setLayout(layout);
+
+    _loGrid->addWidget(widget,row,col,1,1);
+
+    QCPTextElement *textValue = new QCPTextElement(plot);
+    QCPLayoutGrid *subLayout = new QCPLayoutGrid;
+    subLayout->setRowSpacing(0);
+
+    plot->plotLayout()->clear();
+    plot->plotLayout()->addElement(0, 0, textValue); // insert axis rect in first row
+    plot->plotLayout()->addElement(1, 0, subLayout);
+
+    QCPMarginGroup *marginGroup = new QCPMarginGroup(plot);
+    for(int i=0; i<16; i++) {
+        QCPAxisRect *leftRect = new QCPAxisRect(plot);
+        leftRect->setMinimumSize(10, 10);
+        QCPAxisRect *rightRect = new QCPAxisRect(plot);
+        rightRect->setMinimumSize(10, 10);
+
+        subLayout->addElement(i, 0, leftRect);
+        subLayout->addElement(i, 1, rightRect);
+
+        leftRect->setMarginGroup(QCP::msLeft, marginGroup);
+        rightRect->setMarginGroup(QCP::msRight, marginGroup);
+
+        QCPGraph *leftGraph = plot->addGraph(leftRect->axis(QCPAxis::atBottom), leftRect->axis(QCPAxis::atLeft));
+        leftGraph->valueAxis()->setRange(0, 1);
+        leftGraph->keyAxis()->setVisible(false);
+        leftGraph->valueAxis()->setTicks(false);
+        leftGraph->valueAxis()->setTickLabels(false);
+        leftGraph->valueAxis()->grid()->setVisible(false);
+        leftGraph->valueAxis()->setLabel(QString::number(i));
+        leftGraph->setPen(Qt::NoPen);
+        leftGraph->setBrush(Qt::red);
+        leftGraph->setLineStyle(QCPGraph::lsStepRight);
+        QCPGraph *rightGraph = plot->addGraph(rightRect->axis(QCPAxis::atBottom), rightRect->axis(QCPAxis::atLeft));
+        rightGraph->valueAxis()->setRange(0, 1);
+        rightGraph->keyAxis()->setVisible(false);
+        rightGraph->valueAxis()->setTicks(false);
+        rightGraph->valueAxis()->setTickLabels(false);
+        rightGraph->valueAxis()->grid()->setVisible(false);
+        rightGraph->valueAxis()->setLabel(QString::number(16+i));
+        rightGraph->setPen(Qt::NoPen);
+        rightGraph->setBrush(Qt::red);
+        rightGraph->setLineStyle(QCPGraph::lsStepLeft);
+    }
+
+    QTimer *timer = new QTimer();
+    connect(timer, &QTimer::timeout,
+            [=]() {
+        double secs = QCPAxisTickerDateTime::dateTimeToKey(QDateTime::currentDateTime());
+        static quint32 value = 0;
+        textValue->setText(QString::number(value) + QString(" - ") + QString::number( value, 16 ));
+        std::bitset<32> bits(value);
+
+        for (std::size_t i = 0; i < bits.size(); ++i) {
+
+            QCPAxisRect *ar = qobject_cast<QCPAxisRect*>(subLayout->element(i%16,i/16));
+            if(ar) {
+                if(bits[i])
+                    ar->graphs().at(0)->addData(secs, 1);
+                else
+                    ar->graphs().at(0)->addData(secs, 0);
+
+                ar->graphs().at(0)->data()->removeBefore(secs-10);
+                ar->graphs().at(0)->keyAxis()->rescale();
+            }
+        }
+        value++;
+        plot->replot();
+
+    }
+    );
+    timer->start(100);
+
 
 }
 

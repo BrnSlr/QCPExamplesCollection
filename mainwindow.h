@@ -85,6 +85,7 @@ public:
   void setupFinancialDemo(int row, int col, bool openGl);
   void setupAxisTagDemo(int row, int col, bool openGl);
   void setupHistoryDemo(int row, int col, bool openGl);
+  void setupBitFieldDemo(int row, int col, bool openGl);
   void setupPlayground(QCustomPlot *customPlot);
   
 private slots:
