@@ -1155,7 +1155,7 @@ void MainWindow::setupRealtimeBrushDemo(int row, int col, bool openGl)
 
     plot->addGraph(); // red line
     plot->graph(0)->setPen(Qt::NoPen);
-    QLinearGradient gradient0(0, 0, 1, 0);
+    QLinearGradient gradient0(0, 0, 0, 1);
     gradient0.setCoordinateMode(QGradient::ObjectBoundingMode);
     gradient0.setColorAt(1, QColor(40, 110, 255, 255));
     gradient0.setColorAt(0.95, QColor(40, 110, 255, 200));
@@ -1166,7 +1166,7 @@ void MainWindow::setupRealtimeBrushDemo(int row, int col, bool openGl)
     plot->addGraph(); // red line
     plot->graph(1)->setPen(Qt::NoPen);
 
-    QLinearGradient gradient1(0, 0, 1, 0);
+    QLinearGradient gradient1(0, 0, 0, 1);
     gradient1.setCoordinateMode(QGradient::ObjectBoundingMode);
     gradient1.setColorAt(1, QColor(255, 110, 40, 255));
     gradient1.setColorAt(0.95, QColor(255, 110, 40, 200));

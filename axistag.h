@@ -27,7 +27,7 @@
 #define AXISTAG_H
 
 #include <QObject>
-#include "../../qcustomplot.h"
+#include "qcustomplot.h"
 
 class AxisTag : public QObject
 {
